@@ -1,0 +1,10 @@
+# Build
+bin/
+obj/
+
+# Logs
+*.log
+
+# System
+Thumbs.db
+.DS_Store
