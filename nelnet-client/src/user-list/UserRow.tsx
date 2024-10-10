@@ -10,14 +10,14 @@ type UserRowProps = {
 export const UserRow = ({ user: {
   userID, userType, userEmail, hasPassword, dateJoined, dateLastUpdated
 } }: UserRowProps) => (
-  <tr>
-    <td>{userID}</td>
-    <td>{userType}</td>
-    <td>{userEmail}</td>
-    <td>{hasPassword ? '🔒 Set' : '🏗️ Not set'}</td>
-    <td>{formatDate(dateJoined)}</td>
-    <td>{formatDate(dateLastUpdated)}</td>
-    <td>
+  <tr className="border-t">
+    <td className="p-3">{userID}</td>
+    <td className="p-3"><code>{userType}</code></td>
+    <td className="p-3">{userEmail}</td>
+    <td className="p-3">{hasPassword ? '🔒 Set' : '🏗️ Not set'}</td>
+    <td className="p-3">{formatDate(dateJoined)}</td>
+    <td className="p-3">{formatDate(dateLastUpdated)}</td>
+    <td className="p-3">
       <Link to={`/${userID}`}>🖊️ Edit</Link>
     </td>
   </tr>

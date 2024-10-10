@@ -54,7 +54,7 @@ export const UserEdit = () => {
 
   if (isError || user === null) {
     return (
-      <div>
+      <div className="flex justify-between items-baseline mb-3">
         <div>Could not find user #{userID}.</div>
         <div><Link to='/'>Back to user list</Link></div>
       </div>
@@ -104,19 +104,28 @@ export const UserForm = ({
 
   return (
     <form onSubmit={onSubmit}>
-      <h2>Edit user #{userID}</h2>
+      <h2 className="mb-8">Edit user #{userID}</h2>
 
       {errorMessage && (
-        <p>Error: {errorMessage}</p>
+        <p className="p-3 mb-3 font-bold bg-red-200 text-red-950">Error: {errorMessage}</p>
       )}
 
-      <div>
-        <label>ID</label>
+      <div className="flex justify-between items-baseline mb-3">
+        <label className="mr-4">ID</label>
         <div>{userID}</div>
       </div>
-      <div>
-        <label htmlFor="userType">User type</label>
+      <div className="flex justify-between items-baseline mb-3">
+        <label className="mr-4">Joined</label>
+        <div>{formatDate(dateJoined)}</div>
+      </div>
+      <div className="flex justify-between items-baseline mb-3">
+        <label className="mr-4">Last updated</label>
+        <div>{formatDate(dateLastUpdated)}</div>
+      </div>
+      <div className="flex justify-between items-baseline mb-3">
+        <label className="mr-4" htmlFor="userType">User type</label>
         <input
+          className="border border-black rounded px-3 py-2"
           id="userType"
           type="text"
           required
@@ -124,9 +133,10 @@ export const UserForm = ({
           onChange={({ target: { value } }) => { setNewUserType(value); }}
         />
       </div>
-      <div>
-        <label htmlFor="userEmail">Email address</label>
+      <div className="flex justify-between items-baseline mb-3">
+        <label className="mr-4" htmlFor="userEmail">Email address</label>
         <input
+          className="border border-black rounded px-3 py-2"
           id="userEmail"
           type="text"
           required
@@ -135,9 +145,10 @@ export const UserForm = ({
         />
       </div>
       {hasPassword && (
-        <div>
-          <label htmlFor="oldPassword">Current password</label>
+        <div className="flex justify-between items-baseline mb-3">
+          <label className="mr-4" htmlFor="oldPassword">Current password</label>
           <input
+            className="border border-black rounded px-3 py-2"
             id="oldPassword"
             type="password"
             required
@@ -146,27 +157,20 @@ export const UserForm = ({
           />
         </div>
       )}
-      <div>
-        <label htmlFor="newPassword">New password (optional)</label>
+      <div className="flex justify-between items-baseline mb-3">
+        <label className="mr-4" htmlFor="newPassword">New password (optional)</label>
         <input
+          className="border border-black rounded px-3 py-2"
           id="newPassword"
           type="password"
           value={newPassword}
           onChange={({ target: { value } }) => { setNewPassword(value); }}
         />
       </div>
-      <div>
-        <label>Joined</label>
-        <div>{formatDate(dateJoined)}</div>
+      <div className="flex justify-between items-baseline mb-3">
+        <button className="my-3 border border-black" type="submit">Save changes</button>
       </div>
-      <div>
-        <label>Last updated</label>
-        <div>{formatDate(dateLastUpdated)}</div>
-      </div>
-      <div>
-        <button type="submit">Save changes</button>
-      </div>
-      <div>
+      <div className="flex justify-between items-baseline mb-3">
         <Link to='/'>Back to user list</Link>
       </div>
     </form>

@@ -1,5 +1,3 @@
-import './App.css'
-
 import {
   RouterProvider,
   createBrowserRouter,
@@ -22,8 +20,8 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <div>
-      <h1>Nelnet</h1>
+    <div className="m-16">
+      <h1 className="mb-8 font-bold">Nelnet</h1>
       <RouterProvider router={router} />
     </div>
   )

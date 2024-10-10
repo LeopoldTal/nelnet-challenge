@@ -39,18 +39,18 @@ type UserTableProps = { users: User[] };
 // Displays all users as a table.
 const UserTable = ({ users }: UserTableProps) => (
   <div>
-    <h2>All users</h2>
+    <h2 className="mb-8">All users</h2>
 
     <table>
       <thead>
         <tr>
-          <th>#</th>
-          <th>User type</th>
-          <th>Email</th>
-          <th>Password</th>
-          <th>Date joined</th>
-          <th>Date last updated</th>
-          <th>Edit</th>
+          <th className="p-3">#</th>
+          <th className="p-3">User type</th>
+          <th className="p-3">Email</th>
+          <th className="p-3">Password</th>
+          <th className="p-3">Date joined</th>
+          <th className="p-3">Date last updated</th>
+          <th className="p-3">Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -61,7 +61,7 @@ const UserTable = ({ users }: UserTableProps) => (
       {users.length === 0 && (
         <tfoot>
           <tr>
-            <td colSpan={7}>There are no users.</td>
+            <td className="p-4" colSpan={7}>There are no users.</td>
           </tr>
         </tfoot>
       )}
