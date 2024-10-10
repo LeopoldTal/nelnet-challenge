@@ -1,0 +1,12 @@
+@Nelnet_HostAddress = http://localhost:5184
+
+GET {{Nelnet_HostAddress}}/GetUsers
+Accept: application/json
+
+GET {{Nelnet_HostAddress}}/GetUserByID
+Accept: application/json
+
+POST {{Nelnet_HostAddress}}/UpdateUser
+Accept: application/json
+
+###
