@@ -7,6 +7,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Allow front-end to call the API.
+var CorsPolicy = "corsPolicy";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: CorsPolicy,
+        policy =>
+        {
+            policy
+                .WithOrigins("http://localhost:5173")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        }
+    );
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(CorsPolicy);
 
 // Serving locally only so, no HTTPS.
 
