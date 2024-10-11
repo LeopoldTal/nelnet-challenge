@@ -37,10 +37,8 @@ public partial class UserMasterContext : DbContext
     // Modifies a user if it exists, and returns the modified user.
     public UserDto? UpdateUser(UserUpdateDto dto)
     {
-        var user = UserMaster.Find(dto.UserID);
-
-
         SaveChanges();
+        var user = UserMaster.Find(dto.UserID);
         return ToDto(user);
     }
 }
